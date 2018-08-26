@@ -1,8 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { ColorBoardComponent } from './color-board/color-board.component';
+import {AppComponent} from './app.component';
+import {ColorBoardComponent} from './color-board/color-board.component';
+import {ColorPairService} from './service/color-pair/color-pair.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -10,9 +12,10 @@ import { ColorBoardComponent } from './color-board/color-board.component';
     ColorBoardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, HttpClientModule
   ],
-  providers: [],
+  providers: [ColorPairService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

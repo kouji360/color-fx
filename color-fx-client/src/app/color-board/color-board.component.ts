@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FxColorPair} from '../FxColorPair';
+import {ColorPairService} from '../service/color-pair/color-pair.service';
 
 @Component({
   selector: 'app-color-board',
@@ -7,16 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ColorBoardComponent implements OnInit {
 
-  constructor() { }
+  colorPair: FxColorPair;
 
-  name = 'aaa';
-  hero = {
-    name: 'watason',
-    age: 25,
-    nullv: null
-  };
+  constructor(private colorPairService: ColorPairService) {
+  }
 
   ngOnInit() {
+    this.colorPairService.getColorPair(1).subscribe(result => {
+      return result;
+    });
   }
 
 }
